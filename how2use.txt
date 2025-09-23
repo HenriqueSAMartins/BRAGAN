@@ -1,0 +1,82 @@
+
+# Manual de Uso - Script de Recorte Centralizado com Reflexão
+
+## Objetivo:
+Este script realiza o recorte de imagens com base nas bounding boxes fornecidas em arquivos `.txt` no formato YOLO, aplicando reflexões na borda quando necessário para preservar o conteúdo ao redor.
+
+O resultado são imagens quadradas centradas no objeto de interesse, redimensionadas para um tamanho fixo (ex: 256x256 pixels), e salvas em uma nova pasta.
+
+---
+
+## Requisitos:
+- Python 3 instalado
+- OpenCV (`cv2`) e NumPy instalados
+  → Instale com:
+    pip install opencv-python numpy
+
+---
+
+## Estrutura de Pastas Esperada:
+
+.
+├── crop_centered_square_with_reflection.py
+├── target_dataset/           ← pasta com as imagens (.jpg)
+├── labels_yolo/              ← pasta com as labels no formato YOLO (.txt)
+├── images_cropped_256/       ← será criada automaticamente com as imagens resultantes (.png)
+
+---
+
+## Como usar:
+
+1. **Organize suas pastas** com os seguintes nomes ou altere os caminhos no final do script:
+
+IMAGES_FOLDER = "target_dataset"        # pasta com imagens de entrada
+ANNOTATIONS_FOLDER = "labels_yolo"      # pasta com anotações YOLO
+OUTPUT_FOLDER = "images_cropped_256"    # pasta onde as imagens processadas serão salvas
+OUTPUT_SIZE = 256                       # tamanho final da imagem recortada (em pixels)
+
+2. **Execute o script** no terminal:
+
+python crop_centered_square_with_reflection.py
+
+---
+
+## Sobre o formato das anotações:
+Cada arquivo `.txt` da pasta `labels_yolo/` deve conter **uma única linha** com os 5 valores no formato YOLO:
+
+<classe> <x_center> <y_center> <width> <height>
+
+Todos os valores devem estar **normalizados** (entre 0 e 1) em relação à largura e altura da imagem.
+
+---
+
+## O que o script faz:
+- Lê cada imagem e sua respectiva label
+- Converte a bounding box para coordenadas absolutas em pixels
+- Recorta uma região quadrada centralizada na bounding box
+- Aplica reflexão nas bordas se o recorte ultrapassar a imagem
+- Redimensiona para o tamanho definido (`OUTPUT_SIZE`)
+- Salva como `.png` na pasta de saída
+
+---
+
+## Mensagens no console:
+Durante a execução, o script exibe mensagens como:
+
+- `[OK] ... salvo.`: sucesso ao salvar a imagem
+- `[Aviso] Imagem não encontrada para ...`: imagem não localizada para a label
+- `[Erro] Formato incorreto em ...`: erro no conteúdo da label
+
+---
+
+## Exemplo:
+Se você tiver a imagem `gato.jpg` e uma label `gato.txt` com:
+
+0 0.5 0.5 0.4 0.6
+
+O script recortará uma região quadrada centralizada no gato, refletindo as bordas se necessário, e salvará `gato.png` com 256x256 pixels.
+
+---
+
+## Contato:
+Em caso de dúvidas, consulte o desenvolvedor do script ou a pessoa responsável pelo dataset.
