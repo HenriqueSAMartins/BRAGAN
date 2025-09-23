@@ -1,0 +1,16 @@
+# dataset root dir
+#path: /media/usp/DATA/IC-Henrique/BRA-Dataset                                    # DATA AUG + GANS AUG (MEEEEU)
+#path: /media/usp/DATA/GabrielSFerrante/PROJETO/BRA-Dataset/Dataset               # - (FERRANTE)
+path: /media/usp/DATA/GabrielSFerrante/PROJETO/DetectAnimalsInRoads/BRA-Dataset   # DATA AUG (FERRANTE)
+
+
+train: images/train  # train images (relative to 'path')
+val: images/val  # val images (relative to 'path')
+
+# Classes
+names:
+  0: Anta
+  1: Jaguarundi
+  2: LoboGuara
+  3: OncaParda
+  4: TamanduaBandeira

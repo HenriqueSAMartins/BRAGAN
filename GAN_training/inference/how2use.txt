@@ -1,0 +1,17 @@
+inference/
+│
+├── saved_models/             # Pesos do modelo (.pt ou .pth)
+│   └── checkpoint_xx.pth     # Checkpoint treinado
+│
+├── fake/                     # Imagens geradas + log
+│   ├── 0.png                 
+│   ├── 1.png                 
+│   ├── ...
+│   └── log.txt               # Log dos noise -> imagem
+│
+├── utils.py                  # Funções auxiliares (ex.: get_latest_checkpoint)
+├── model.py                  # Definição do Generator (apenas Generator necessário)
+├── config.py                 # Hiperparâmetros do modelo
+├── test_generator.py         # Script de inferência
+│
+└── requirements.txt          # Dependências do ambiente
