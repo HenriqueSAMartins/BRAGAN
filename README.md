@@ -17,11 +17,18 @@ BRAGAN is an augmented dataset aimed at improving object detection models for wi
 
 ## 📦 Project Structure
 
+```
 BRAGAN/
-├─ preprocessing_images/ # Scripts/notebooks for filtering, padding, cropping, resizing, and classical aug.
-├─ GAN_training/ # Class-specific GAN setups (e.g., WGAN-GP) and training utilities
+├─ preprocessing_images/              # Preprocessing: filtering, mirror padding, bbox cropping and resizing
+│  ├─ crop_trick/                     # Routines for cropping + mirror padding to build square canvas from YOLO labels
+│  └─ data_aug/                       # Classical augmentations (flip, shift, rotate, brightness/contrast/saturation, etc.)
+├─ GAN_training/                      # Class-specific GAN training (e.g., WGAN-GP) and utilities
+│  ├─ inference/                      # Sample generation (generator inference), saving and curation/selection
+│  └─ WGAN-GP=256/                    # WGAN-GP configuration and code for 256×256 resolution (architecture, loops, checkpoints)
 └─ YOLO_evaluation/
-    └─ YOLO/ # Training/evaluation configs & helpers for YOLOv5/v8/v11
+   ├─ inference/                      # Scripts/notebooks for running inference and collecting metrics
+   └─ YOLO_training/                  # Training configs/helpers (data.yaml, hypers, scenarios 1/2/3) for YOLOv5/v8/v11
+```
 
 > The dataset itself (**images/** and **labels/**) is **not** stored in this repo. Download it from the link above.
 
