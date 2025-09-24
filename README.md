@@ -32,3 +32,22 @@ BRAGAN/
 
 > The dataset itself (**images/** and **labels/**) is **not** stored in this repo. Download it from the link above.
 
+
+## 🧰 Preprocessing Pipeline
+- Lateral pose filtering (reduce silhouette variance)
+- Mirror padding + light blur (square canvas)
+- Bbox crop from YOLO labels (proportional)
+- Resize to 256×256
+- Classical augmentations
+
+## 🧪 GAN Training (WGAN-GP)
+- Latent: 128-D z ~ N(0,1)
+- Resolution: 256×256 RGB
+- Optimizer: Adam (lr=2e-4, β1=0.5, β2=0.999)
+- ~800 epochs, 5 critic steps per generator step
+- GP λ = 10 (Lipschitz constraint)
+
+## 🔗 YOLO Trained Weights
+Final YOLO training weights are available at the following link:
+👉 [Google Drive — YOLO Weights](https://drive.google.com/drive/folders/1aVDQh6e_sYjavH-xqvzEUv2eZVexOEBT?usp=sharing).
+
