@@ -72,6 +72,6 @@ If you use BRAGAN (data, code, or results), please cite:
 ```
 
 ## 📬 Contact
-Henrique Souza de Abreu Martins — (USP/ICMC)
-Gabriel Souto Ferrante — (UFSCar)
-Rodolfo I. Meneguette — (ICMC/USP)
+- Henrique Souza de Abreu Martins — (USP/ICMC)
+- Gabriel Souto Ferrante — (UFSCar)
+- Rodolfo I. Meneguette — (ICMC/USP)
